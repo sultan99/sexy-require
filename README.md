@@ -16,7 +16,7 @@ Three simple steps to use it.
   ```json
   {
     "name": "your-app-name",
-    "version": "0.0.2",
+    "version": "0.0.0",
     "main": "app.js",
     "author": "your-name",
     "path": {
@@ -26,7 +26,7 @@ Three simple steps to use it.
     }
   }
   ```
-
+  
 3. Include `require('sexy-require')` once on the top in your main application file.<br/>
 Anywhere in your project you can use the defined paths like the follow:
 
