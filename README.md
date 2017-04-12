@@ -9,7 +9,7 @@ const user = require('$db/user') // 👍 no matter how deep you are
 ## How to user
 Three simple steps to use it.
 1. Install the package:<br/>
-	`npm install sexy-require --save`
+  `npm install sexy-require --save`
 
 2. Define shortcuts of paths in your application package.json. If don't have it then create `package.json` file on the root of your project folder:
 
