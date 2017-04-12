@@ -13,27 +13,27 @@ Three simple steps to use it.
 
 2. Define shortcuts of paths in your application package.json. If don't have it then create `package.json` file on the root of your project folder:
 
-	```json
-	{
-		"name": "your-app-name",
-		"version": "0.0.2",
-		"main": "app.js",
-		"author": "your-name",
-		"path": {
-			"$home": "/",
-			"$db": "/database/models",
-			"$api": "/api/v1"
-		}
-	}
-	```
+  ```json
+  {
+    "name": "your-app-name",
+    "version": "0.0.2",
+    "main": "app.js",
+    "author": "your-name",
+    "path": {
+        "$home": "/",
+        "$db": "/database/models",
+        "$api": "/api/v1"
+    }
+  }
+  ```
 
 3. Include `require('sexy-require')` once on the top in your main application file.<br/>
 Anywhere in your project you can use the defined paths like the follow:
 
-	```js
-	const routers = require('$home/routers')
-	const product = require('$api/$db/product')
-	const api = require('$api')
+  ```js
+  const routers = require('$home/routers')
+  const product = require('$api/$db/product')
+  const api = require('$api')
 
-	console.log('$home') // -> undefined, works only with require
-	```
+  console.log('$home') // -> undefined, works only with require
+  ```
