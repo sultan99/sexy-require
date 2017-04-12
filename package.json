@@ -1,13 +1,9 @@
 {
   "name": "sexy-require",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "No more ugly path inside require",
   "date": "06/04/2017",
   "main": "index.js",
   "author": "Sultan Arziev",
-  "license": "MIT License",
-  "path": {
-    "$home": "/",
-    "$api": "/api/v1/database"
-  }
+  "license": "MIT License"
 }
