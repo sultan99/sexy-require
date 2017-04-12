@@ -1,7 +1,7 @@
 # Sexy require
 No more ugly path inside the `require`. <br/>
 ```js
-const user = require('../../../../database/user') // 👎 no comments...
+const user = require('../../../database/user') // 👎 what you have
 // OR
 const user = require('$db/user') // 👍 no matter how deep you are
 ```
