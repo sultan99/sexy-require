@@ -20,7 +20,7 @@ You need to make three simple steps to use it.
 	"author": "your-name",
 	"path": {
 		"$home": "/",
-		"#db": "/database",
+		"$db": "/database",
 		"$api": "/api/v1"
 	}
 }
