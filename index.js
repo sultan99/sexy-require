@@ -6,11 +6,11 @@ const _require = Module.prototype.require
 
 Module.prototype.require = function(path) {
 	if (path.indexOf(`$`) >= 0) {
-		let root = normalize(`${__dirname}/../..`)
 		for (let dirname in paths) {
 			path = path.replace(dirname, paths[dirname])
 		}
 	}
+	const root = normalize(`${__dirname}/../..`)
 	return _require.call(this, join(root, path))
 }
 
