@@ -28,12 +28,13 @@ Three simple steps to use it.
   ```
 
 3. Include `require('sexy-require')` once on the top in your main application file.<br/>
-Anywhere in your project you can use the defined paths like the follow:
+```js
+const routers = require('$home/routers')
+const api = require('$api')
+```
 
-  ```js
-  const routers = require('$home/routers')
-  const product = require('$api/$db/product')
-  const api = require('$api')
-
-  console.log('$home') // -> undefined, works only with require
-  ```
+4. Anywhere in your project you can use the defined paths like the follow:
+```js
+const path = require(`sexy-require`)
+console.log(path.$db) // -> '/database/models'
+```

@@ -2,16 +2,20 @@ const Module = require(`module`)
 const join = require(`path`).join
 const normalize = require(`path`).normalize
 const paths = require(`../../package.json`).path
-const _require = Module.prototype.require
 
+let root = normalize(`${__dirname}/../..`)
+for (let dirname in paths) {
+	paths[dirname] = join(root, paths[dirname])
+}
+
+const _require = Module.prototype.require
 Module.prototype.require = function(path) {
 	if (path.indexOf(`$`) >= 0) {
-		let root = normalize(`${__dirname}/../..`)
 		for (let dirname in paths) {
-			path = path.replace(dirname, join(root, paths[dirname]))
+			path = path.replace(dirname, paths[dirname])
 		}
 	}
 	return _require.call(this, path)
 }
 
-module.exports = Module.prototype.require
+module.exports = paths
