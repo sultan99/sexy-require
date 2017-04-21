@@ -6,7 +6,7 @@ const user = require('../../../database/user') // 👎 what you have
 const user = require('$db/user') // 👍 no matter how deep you are
 ```
 
-## How to user
+## How to use
 Three simple steps to use it.
 1. Install the package:<br/>
   `npm install sexy-require --save`
@@ -26,7 +26,7 @@ Three simple steps to use it.
     }
   }
   ```
-  
+
 3. Include `require('sexy-require')` once on the top in your main application file.<br/>
 Anywhere in your project you can use the defined paths like the follow:
 
