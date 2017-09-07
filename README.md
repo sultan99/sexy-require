@@ -11,7 +11,7 @@ Three simple steps to use it.
 1. Install the package:<br/>
   `npm install sexy-require --save`
 
-2. Define shortcuts of paths in your application package.json. If don't have it then create `package.json` file on the root of your project folder:
+2. Define shortcuts of paths in your application package.json:
 
   ```json
   {
@@ -29,11 +29,14 @@ Three simple steps to use it.
 
 3. Include `require('sexy-require')` once on the top in your main application file.<br/>
 ```js
+require('sexy-require')
 const routers = require('$home/routers')
 const api = require('$api')
+...
 ```
 
-4. Anywhere in your project you can use the defined paths like the follow:
+## List of paths
+Anywhere in your project you can use the defined paths:
 ```js
 const path = require(`sexy-require`)
 console.log(path.$db) // -> '/database/models'
