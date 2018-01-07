@@ -1,6 +1,6 @@
 {
   "name": "sexy-require",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "description": "No more ugly path inside require",
   "date": "06/04/2017",
   "main": "index.js",
