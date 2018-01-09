@@ -9,27 +9,25 @@ const product = require('/database/product') // 👍 alias or pathing from root 
 
 ## Getting started
 Three simple steps to use it.
-1. Install the package:
-
-  `npm install sexy-require --save`
+1. Install the package: `npm install sexy-require --save`
 
 2. Include `require('sexy-require')` once on the top of your main application file.
-  ```js
-  require('sexy-require')
-  const routers = require('/routers')
-  const api = require('$api')
-  ...
-  ```
+```js
+require('sexy-require')
+const routers = require('/routers')
+const api = require('$api')
+...
+```
 
-3. Optionally path configuration can be defined in `.paths` file on root directory of your project.
-  ```
-  $db = /server/database
-  $api-v1 = /server/api/legacy
-  $api-v2 = /server/api/v2
-  ```
+3. Optional step. Path configuration can be defined in `.paths` file on root directory of your project.
+```
+$db = /server/database
+$api-v1 = /server/api/legacy
+$api-v2 = /server/api/v2
+```
 
 ## List of paths
-Anywhere in your project you can use the defined paths:
+Anywhere in your project you can get the defined shortcut paths:
 ```js
 const path = require(`sexy-require`)
 console.log(path.$db) // -> '/full/path/to/app/server/database'
