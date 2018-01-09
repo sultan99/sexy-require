@@ -1,4 +1,4 @@
-# Sexy require v 1.0.0
+# Sexy require v 1.0
 No more ugly path inside the `require`. <br/>
 ```js
 const user = require('../../../database/user') // 👎 what you have
