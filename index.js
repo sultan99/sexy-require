@@ -14,7 +14,7 @@ function findRootDir(path) {
 
 function getOptions(root) {
   var path = join(root, `.paths`)
-  if (!existsSync(package)) return {}
+  if (!existsSync(path)) return {}
   var text = readFileSync(path, {encoding: `utf8`})
   var re = /(\$[\w-]+)\s*=\s*(.+)/gm
   var match, options = {}
