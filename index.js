@@ -14,6 +14,7 @@ function findRootDir(path) {
 
 function getOptions(root) {
   var path = join(root, `.paths`)
+  if (!existsSync(package)) return {}
   var text = readFileSync(path, {encoding: `utf8`})
   var re = /(\$[\w-]+)\s*=\s*(.+)/gm
   var match, options = {}
@@ -26,9 +27,11 @@ function getOptions(root) {
 }
 
 function setShortcuts(path) {
-  var dir = findRootDir(path)
-  shortcuts[dir] = getOptions(dir)
-  return shortcuts[dir]
+  var root = findRootDir(path)
+  if (!shortcuts[root]) {
+    shortcuts[root] = getOptions(root)
+  }
+  return shortcuts[root]
 }
 
 function callerPath() {
@@ -38,9 +41,9 @@ function callerPath() {
 }
 
 function moduleSearch(path) {
-  return function(item) {
-    var re = new RegExp(item.replace(/\\/g, `\\\\`))
-    return path.search(re) === 0
+  return function(mdl) {
+    var re = new RegExp(mdl.replace(/\\/g, `\\\\`))
+    return !path.search(re)
   }
 }
 
@@ -51,24 +54,23 @@ function getRoot() {
   return modules.find(findModule)
 }
 
-
 function rootPath(path) {
   var root = getRoot()
-  return root ? join(root, path) : null
+  return root && join(root, path)
 }
 
 function shortcutPath(path) {
   var root = getRoot()
-  if (!root) return null
-  var shortcut = path.match(/^\$\w+/)[0]
+  if (!root) return false
+  var shortcut = path.match(/^\$[\w-]+/)[0]
   var dir = shortcuts[root][shortcut]
   dir = path.replace(shortcut, dir)
   return dir
 }
 
 function getPaths(path) {
-  var dir = path ? path : callerPath()
-  return setShortcuts(dirname(dir))
+  var dir = path || callerPath()
+  return setShortcuts(dir)
 }
 
 var Module = require(`module`)
