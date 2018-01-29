@@ -21,7 +21,8 @@ function getOptions(root) {
   while(match = re.exec(text)) {
     var name = match[1]
     var value = match[2]
-    options[name] = value === `/` ? root : join(root, value)
+    var dir = value === `/` ? root : join(root, value)
+    options[name] = dir
   }
   return options
 }
@@ -56,7 +57,9 @@ function getRoot() {
 
 function rootPath(path) {
   var root = getRoot()
-  return root && join(root, path)
+  var dir = join(root, path)
+  var exists = existsSync(dir) || existsSync(normalize(dir + `/..`))
+  return exists && dir
 }
 
 function shortcutPath(path) {
@@ -64,8 +67,7 @@ function shortcutPath(path) {
   if (!root) return false
   var shortcut = path.match(/^\$[\w-]+/)[0]
   var dir = shortcuts[root][shortcut]
-  dir = path.replace(shortcut, dir)
-  return dir
+  return path.replace(shortcut, dir)
 }
 
 function getPaths(path) {
@@ -82,7 +84,6 @@ Module.prototype.require = function(path) {
   if (path[0] === `/`) dir = rootPath(path) || path
   if (path[0] === `$`) dir = shortcutPath(path) || path
   if (path === `sexy-require`) return getPaths()
-
   return include.call(this, dir)
 }
 

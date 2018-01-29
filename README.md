@@ -1,4 +1,4 @@
-# 💃🏻 Sexy require v 1.0.1
+# 💃🏻 Sexy require v 1.1.0
 No more ugly path inside the `require`. <br/>
 ```js
 const user = require('../../../database/user') // 👎 what you have
@@ -34,6 +34,8 @@ console.log(path.$db) // -> '/full/path/to/app/server/database'
 ```
 
 ## Changelog
+### v 1.1
+ - Seamless module require. If a given path doesn't exist in the app directory it will be ignored by sexy-require.
 ### v 1.0
  - definition of path shortcuts moved from `package.json` to `.paths` config file
  - depending modules can use `sexy-require` too, previously it was not possible
