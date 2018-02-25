@@ -4,7 +4,7 @@ No more ugly path inside the `require`. <br/>
 const user = require('../../../database/user') // 👎 what you have
 // OR
 const user = require('$db/user') // 👍 no matter how deep you are
-const product = require('/database/product') // 👍 alias or pathing from root directory
+const product = require('/database/product') // 👍 alias or pathing from application directory
 ```
 
 ## Getting started
