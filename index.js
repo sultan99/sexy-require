@@ -37,7 +37,7 @@ function setShortcuts(path) {
 
 function callerPath() {
   var err = new Error()
-  var re = /at Object\.<anonymous> \((.*):\d+:\d+\)/m
+  var re = /at require \(internal\/module\.js:11:18\)\n.+\((.*):\d+:\d+\)/m
   return err.stack.match(re)[1]
 }
 
