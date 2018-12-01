@@ -7,9 +7,9 @@ var readFileSync = require(`fs`).readFileSync
 var shortcuts = {}
 
 function findRootDir(path) {
-  var package = join(path, `package.json`)
+  var packageJson = join(path, `package.json`)
   var parentPath = normalize(path + `/..`)
-  return existsSync(package) ? path : findRootDir(parentPath)
+  return existsSync(packageJson) ? path : findRootDir(parentPath)
 }
 
 function getOptions(root) {
